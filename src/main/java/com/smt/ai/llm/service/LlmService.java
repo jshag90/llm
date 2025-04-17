@@ -30,7 +30,6 @@ public class LlmService {
     private final RestTemplate restTemplate;
 
     public List<String> askCommandQuery(String condition) {
-        //condition = translateKorToEng(condition);
         String prompt = PromptTemplateUtil.getSchemaPrompt(jdbcTemplate, condition);
         log.info("prompt : {}", prompt);
         Prompt promptObj = new Prompt(List.of(new UserMessage(prompt)), options);
