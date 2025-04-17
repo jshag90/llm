@@ -49,7 +49,11 @@ public class LlmService {
         }
 
         if(substring.equalsIgnoreCase("select")){
-            return jdbcTemplateUtil.executeQueryAndReturnStrings(jdbcTemplate, responsePrompt);
+            List<String> queryResultList = jdbcTemplateUtil.executeQueryAndReturnStrings(jdbcTemplate, responsePrompt);
+            if(queryResultList.isEmpty()){
+                return Arrays.asList("해당 요청은 처리할 수 없습니다.");
+            }
+            return queryResultList;
         }
 
         return Arrays.asList("해당 요청은 처리할 수 없습니다.");
