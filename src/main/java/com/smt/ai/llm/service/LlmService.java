@@ -23,7 +23,7 @@ import java.util.*;
 @RequiredArgsConstructor
 @Slf4j
 public class LlmService {
-    private static final OllamaOptions options = OllamaOptions.builder().temperature(0.5).build();
+    private static final OllamaOptions options = OllamaOptions.builder().temperature(0.3).build();
     private static final String translateServerUrl = "http://localhost:5000/translate";
     private final OllamaChatModel chatModel;
     private final JdbcTemplate jdbcTemplate;
